@@ -1,6 +1,7 @@
 // form component
 import React from 'react';
 import axios from 'axios';
+import './Form.css';
 
 function Form(props) {
 
@@ -35,9 +36,10 @@ function Form(props) {
     return (
         <div id="input-form">
             <h2>Add an item:</h2>
+            <h5 className='required'>* denotes required</h5>
             <form onSubmit={clickHandler}>
-                <input id="item-name" type="text" placeholder="item name..."/>
-                <input id="item-quantity" type="number" placeholder="quantity..."/>
+                <label for="item-name" className="required">*</label><input required id="item-name" type="text" placeholder="item name..."/>
+                <label for="item-quantity" className="required">*</label><input required id="item-quantity" type="number" placeholder="quantity..."/>
                 <input id="item-unit" type="text" placeholder="unit of measure..."/>
                 <button>Add Item</button>
             </form>

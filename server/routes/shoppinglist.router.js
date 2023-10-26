@@ -4,7 +4,7 @@ const pool = require('../modules/pool.js');
 
 // ---    /shoppinglist router
 router.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "shoppinglist" ORDER BY "name";'
+    let queryText = 'SELECT * FROM "shoppinglist" ORDER BY "purchased", "name";'
     pool.query(queryText)
     .then((result) => {
         console.log('GET shopping list success');

@@ -6,8 +6,6 @@ import './App.css';
 import axios from 'axios';
 import ShoppingList from '../ShoppingList/ShoppingList.jsx';
 
-
-
 function App() {
     const [shoppingList, setShoppingList] = useState([]);
 
@@ -33,5 +31,4 @@ function App() {
         </div>
     );
 }
-
 export default App;

@@ -1,23 +1,7 @@
 import axios from 'axios';
-import {useEffect, useState} from 'react';
-import ShoppingList from '../ShoppingList/ShoppingList.jsx';
+import './DisplayItem.css';
 
 function DisplayItem(props){
-    
-    // const [shoppingList, setShoppingList] = useState([]);
-
-    // const getShoppingList = () => {
-    //     axios.get('/shoppinglist').then((response) => {
-    //         setShoppingList(response.data)
-    //     }).catch((error) => {
-    //         console.log('GET/shoppinglist error', error);
-    //         alert('Something went wrong getting your list!');
-    //     });
-    // };
-
-    // useEffect(() => {
-    //     getShoppingList();
-    // }, []);
 
     const purchaseItem = () => {
         console.log(`Purchase request for ${props.item.id}`);
@@ -51,10 +35,10 @@ function DisplayItem(props){
     }
 
         return(
-            <div>
-                <p>{props.item.name}</p>
-                <p>{props.item.quantity}</p>
-                <p>{props.item.unit}</p>
+            <div className={props.item.purchased ? 'purchased' :'incart'}>
+                <p className="name">{props.item.name}</p>
+                <p>Quantity Needed: {props.item.quantity}</p>
+                <p>Unit: {props.item.unit}</p>
                 <p>{purchased(props.item.purchased)}</p>
                 <button onClick={removeItem}>Remove</button>
             </div>

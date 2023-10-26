@@ -1,0 +1,16 @@
+.incart {
+    background-color: lightcoral;
+}
+
+.purchased {
+    background-color: lightgrey;
+}
+
+.incart, .purchased{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.name {
+    text-decoration: underline;
+}
