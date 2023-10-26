@@ -28,8 +28,8 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <Form />
-            <ShoppingList list={shoppingList}/>
+            <Form getShoppingList={getShoppingList}/>
+            <ShoppingList getShoppingList={getShoppingList} list={shoppingList}/>
         </div>
     );
 }

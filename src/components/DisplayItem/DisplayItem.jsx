@@ -23,7 +23,7 @@ function DisplayItem(props){
         console.log(`Purchase request for ${props.item.id}`);
         axios.put(`/shoppinglist/${props.item.id}`).then((response) => {
             console.log(`${props.item.name} purchased`);
-            <ShoppingList/>;
+            props.getShoppingList();
         }).catch((error) => {
             console.log('PUT error', error);
             alert('Something went wrong trying to buy this item');
@@ -34,6 +34,7 @@ function DisplayItem(props){
         console.log('item to remove:', props.item.id);
         axios.delete(`/shoppinglist/${props.item.id}`).then((response) => {
             console.log('you successfully deleted your item');
+            props.getShoppingList()
         }).catch((error) => {
             console.log(`DELETE ERROR`, error);
             alert('your item was not deleted');
@@ -42,9 +43,10 @@ function DisplayItem(props){
 
     const purchased = () => {
         if(props.item.purchased === true){
-        return <p>Item Purchased</p>
-        }else if(props.item.purchased === false){
-        return <button onClick={purchaseItem}>Buy</button>
+            return <>Item Purchased</>
+        }
+        else if(props.item.purchased === false){
+            return <button onClick={purchaseItem}>Buy</button>
         }
     }
 

@@ -2,32 +2,35 @@
 import React from 'react';
 import axios from 'axios';
 
-const clickHandler = () => {
-    // axios POST will go here
-    event.preventDefault();
-    let itemName = document.querySelector('#item-name').value;
-    document.querySelector('#item-name').value = "";
-    let itemQuantity = document.querySelector('#item-quantity').value;
-    document.querySelector('#item-quantity').value = "";
-    let itemUnit = document.querySelector('#item-unit').value;
-    document.querySelector('#item-unit').value = "";
+function Form(props) {
 
-    let newItem = {
-        name: itemName,
-        quantity: itemQuantity,
-        unit: itemUnit
-    };
+    const clickHandler = (event) => {
+        // axios POST will go here
+        event.preventDefault();
+        let itemName = document.querySelector('#item-name').value;
+        document.querySelector('#item-name').value = "";
+        let itemQuantity = document.querySelector('#item-quantity').value;
+        document.querySelector('#item-quantity').value = "";
+        let itemUnit = document.querySelector('#item-unit').value;
+        document.querySelector('#item-unit').value = "";
+    
+        let newItem = {
+            name: itemName,
+            quantity: itemQuantity,
+            unit: itemUnit
+        };
+    
+        axios.post('/shoppinglist',(newItem)).then((response) =>{
+            console.log("Response from server: ", response);
+            props.getShoppingList();
+        })
+        .catch((error) => {
+            console.error("Error in POST '/shoppinglist' in Form component", error);
+            alert("Error in POST '/shoppinglist' in Form component. See console.")
+        })
+    }
 
-    axios.post('/shoppinglist',(newItem)).then((response) =>{
-        console.log("Response from server: ", response);
-    })
-    .catch((error) => {
-        console.error("Error in POST '/shoppinglist' in Form component", error);
-        alert("Error in POST '/shoppinglist' in Form component. See console.")
-    })
-}
 
-function Form() {
     // main module function
     return (
         <div id="input-form">

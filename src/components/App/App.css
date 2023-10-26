@@ -2,3 +2,7 @@ main {
   width: 90%;
   margin: auto;
 }
+
+* {
+  margin:10px
+}

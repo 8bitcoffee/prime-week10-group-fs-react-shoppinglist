@@ -18,7 +18,7 @@ function ShoppingList (props) {
     const resetList = () => {
         axios.put('/shoppinglist/all').then((response) =>{
             console.log("All items reset as unpurchased.", response);
-            // getShoppingList();
+            props.getShoppingList();
         })
         .catch((error) => {
             console.error("Error in PUT '/shoppinglist/all' inside ShoppingList component.", error);
@@ -32,7 +32,7 @@ function ShoppingList (props) {
     const clearList = () => {
         axios.delete('/shoppinglist/all').then((response) => {
             console.log("List cleared successfully", response);
-            // getShoppingList();
+            props.getShoppingList();
         })
         .catch((error) => {
             console.error("Error in DELETE '/shoppinglist/all' inside ShoppingList component.", error);
@@ -47,7 +47,7 @@ function ShoppingList (props) {
             <button onClick={clearList}>Clear</button>
             <div>
 
-                {props.list.map((item) => (<DisplayItem key={item.id} item={item}/>))}
+                {props.list.map((item) => (<DisplayItem getShoppingList={props.getShoppingList} key={item.id} item={item}/>))}
             </div>
         </div>
     )
