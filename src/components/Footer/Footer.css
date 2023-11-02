@@ -1,0 +1,23 @@
+
+#footer-div{
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to top, lightgrey, white);
+}
+
+    #brand-name {
+        font-size: 28px;
+        color: #646464;
+    }
+
+    #co-riters {
+        display: flex;
+        align-items: flex-end;
+        font-size: 12px;
+        margin-top: -1rem;
+        color: #64646488;
+
+    }

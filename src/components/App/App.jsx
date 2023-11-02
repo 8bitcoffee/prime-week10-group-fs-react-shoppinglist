@@ -5,6 +5,7 @@ import Header from '../Header/Header.jsx';
 import './App.css';
 import axios from 'axios';
 import ShoppingList from '../ShoppingList/ShoppingList.jsx';
+import Footer from '../Footer/Footer.jsx';
 
 function App() {
     const [shoppingList, setShoppingList] = useState([]);
@@ -28,6 +29,7 @@ function App() {
             <Header />
             <Form getShoppingList={getShoppingList}/>
             <ShoppingList getShoppingList={getShoppingList} list={shoppingList}/>
+            <Footer />
         </div>
     );
 }
