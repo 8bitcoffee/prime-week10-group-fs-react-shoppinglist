@@ -2,3 +2,11 @@
     color: red;
     margin-right: -5px;
 }
+
+#input-form {
+    padding: 10px;
+}
+
+.hidden {
+    visibility: hidden;
+}
