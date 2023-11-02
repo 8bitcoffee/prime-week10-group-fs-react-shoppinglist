@@ -40,7 +40,7 @@ function ShoppingList (props) {
             <hr></hr>
             <h3>Shopping List:</h3>
             <Button variant="contained"  onClick={resetList}>Reuse List</Button>
-            <Button variant="contained"  onClick={clearList}>Delete All</Button>
+            <Button variant="contained" color="error" onClick={clearList}>Delete All</Button>
             <hr></hr>
             <div id="shopping-list-body">
                 {props.list.map((item) => (<DisplayItem getShoppingList={props.getShoppingList} key={item.id} item={item}/>))}
