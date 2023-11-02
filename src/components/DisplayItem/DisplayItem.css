@@ -1,9 +1,9 @@
 .incart {
-    background-color: lightcoral;
+    background-color: rgba(208, 203, 66, 0.709);
 }
 
 .purchased {
-    background-color: lightgrey;
+    background-color: rgba(211, 211, 211, 0.704);
 }
 
 .incart, .purchased{
@@ -13,4 +13,8 @@
 
 .name {
     text-decoration: underline;
+}
+
+CardAction{
+    align-content: center;
 }
