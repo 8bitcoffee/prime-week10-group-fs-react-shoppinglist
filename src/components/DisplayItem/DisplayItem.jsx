@@ -1,5 +1,10 @@
 import axios from 'axios';
 import './DisplayItem.css';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Typography from '@mui/material/Typography';
 
 function DisplayItem(props){
 
@@ -30,18 +35,28 @@ function DisplayItem(props){
             return <>Item Purchased</>
         }
         else if(props.item.purchased === false){
-            return <button onClick={purchaseItem}>Buy</button>
+            return <Button variant="contained" onClick={purchaseItem}>Buy</Button>
         }
     }
 
         return(
-            <div className={props.item.purchased ? 'purchased' :'incart'}>
-                <p className="name">{props.item.name}</p>
-                <p>Quantity Needed: {props.item.quantity}</p>
-                <p>Unit: {props.item.unit}</p>
-                <p>{purchased(props.item.purchased)}</p>
-                <button onClick={removeItem}>Remove</button>
-            </div>
+            <Card>
+                <CardContent>
+                    <Typography variant="h4">
+                        {props.item.name}
+                    </Typography>
+                    <Typography variant="h5">
+                        Quantity Needed: {props.item.quantity}
+                    </Typography>
+                    <Typography variant="h6">
+                        Unit: {props.item.unit}
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Typography>{purchased(props.item.purchased)}</Typography>
+                    <Button variant="contained" color="error" onClick={removeItem}>Remove</Button>
+                </CardActions>
+            </Card>
 
         );
 
